@@ -1,0 +1,45 @@
+--This project is focused on laravel share page on social media--
+--This project is also focused on laravel generate slug for blog---
+
+---To create a project---
+composer create-project --prefer-dist laravel/laravel socialshare
+
+---To open project in browser---
+mv server.php index.php
+cp public/.htaccess .
+---open in browser---
+http://localhost/laravel/socialshare
+
+
+--install packages for social share--
+composer require jorenvanhocht/laravel-share
+php artisan vendor:publish --provider="Jorenvh\Share\Providers\ShareServiceProvider"
+
+--install packages for slug---
+composer require cviebrock/eloquent-sluggable
+php artisan vendor:publish --provider="Cviebrock\EloquentSluggable\ServiceProvider"
+
+
+
+--create post model to share post-----
+php artisan make:model Blog -m
+
+--insert some post via seeder---
+php artisan make:seeder BlogTableSeeder
+
+--create controller-----
+php artisan make:controller SocialShareController -r
+
+
+
+---reference link ------
+
+---social share package details----
+https://packagist.org/packages/jorenvanhocht/laravel-share
+
+https://www.itsolutionstuff.com/post/how-to-add-social-media-share-buttons-in-laravelexample.html
+
+https://www.positronx.io/laravel-integrate-facebook-like-share-post-button-tutorial/
+
+--reference link for slug---
+https://www.tutsmake.com/laravel-8-create-unique-slug-tutorial-example/
